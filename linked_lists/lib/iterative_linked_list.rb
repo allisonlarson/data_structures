@@ -89,16 +89,11 @@ class IterativeLinkedList
  
   def find(word)
    current_node = head_node
-   if current_node.data == word
-     return current_node
-   else
-     while current_node.data != word && current_node.next_node
-       checked_node = current_node.next_node
-       if checked_node.data == word
-        return checked_node
-       else
-         current_node = current_node.next_node
-       end
+   while current_node
+     if current_node.data == word
+       return current_node
+     else
+        current_node = current_node.next_node 
      end
    end
   end
@@ -116,18 +111,14 @@ class IterativeLinkedList
   def index(word)
     index_count = 0
     current_node = head_node
-    if current_node.data == word
-      index_count
-    else
-      while current_node.next_node
-        if current_node.data == word
-         return index_count
-        else
-          index_count += 1
-          current_node = current_node.next_node
-        end
-      end
-    end
+    while current_node
+     if current_node.data == word
+      return index_count
+     else
+      index_count += 1
+      current_node = current_node.next_node
+     end
+   end
   end
 
   def insert_after(existing_word, new_word)
