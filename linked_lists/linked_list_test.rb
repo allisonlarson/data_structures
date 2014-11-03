@@ -102,9 +102,9 @@ class IterativeLinkedListTest < Minitest::Test
 
   def test_a_node_links_to_its_next_element
     list.push("hello")
-    list.push("world")  #assuming the last node of a linked list should be nil (instead of circular list)
-    assert_equal "hello", list.head_node.data #change to hello from world and list.head_node
-    assert_equal "world", list.head_node.next_node.data #change to world from hello and list.head_node.next_node
+    list.push("world")
+    assert_equal "hello", list.head_node.data
+    assert_equal "world", list.head_node.next_node.data
   end
 
   def test_next_node_for_the_last_node_is_nil
@@ -125,7 +125,7 @@ class IterativeLinkedListTest < Minitest::Test
     list.push("today")
 
     assert_equal "world", list.find("world").data
-    assert_equal "today", list.find("world").next_node.data  #changed assert 'hello' to today?
+    assert_equal "today", list.find("world").next_node.data
   end
 
   def test_inserts_node_at_arbitrary_position
@@ -146,8 +146,8 @@ class IterativeLinkedListTest < Minitest::Test
 
     list.insert(1, "pizza")
 
-    assert_equal "world", list.find("pizza").next_node.data #change to world from hello
-    assert_equal "pizza", list.find("hello").next_node.data #change to hello from world
+    assert_equal "world", list.find("pizza").next_node.data
+    assert_equal "pizza", list.find("hello").next_node.data
   end
 
   def test_insert_after_adds_a_node_after_a_given_node
@@ -157,7 +157,7 @@ class IterativeLinkedListTest < Minitest::Test
 
     list.insert_after("hello", "pizza")
 
-    assert_equal "world", list.find("pizza").next_node.data # change to world from hello
-    assert_equal "pizza", list.find("hello").next_node.data # change to hello from world
+    assert_equal "world", list.find("pizza").next_node.data
+    assert_equal "pizza", list.find("hello").next_node.data
   end
 end
