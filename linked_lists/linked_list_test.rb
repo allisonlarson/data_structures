@@ -103,7 +103,7 @@ class IterativeLinkedListTest < Minitest::Test
   def test_a_node_links_to_its_next_element
     list.push("hello")
     list.push("world")
-    assert_equal "hello", list.head_node.data
+    assert_equal "world", list.last_node.data
     assert_equal "world", list.head_node.next_node.data
   end
 

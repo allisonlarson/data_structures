@@ -114,16 +114,16 @@ class IterativeLinkedList
   end
 
   def index(word)
-    count = 0
+    index_count = 0
     current_node = head_node
     if current_node.data == word
-      count
+      index_count
     else
       while current_node.next_node
         if current_node.data == word
-         return count
+         return index_count
         else
-          count += 1
+          index_count += 1
           current_node = current_node.next_node
         end
       end
@@ -136,17 +136,13 @@ class IterativeLinkedList
   end
 
   def to_a
-    a = []
-    if head_node.nil?
-      a
-    else
-      current_node = head_node
-      while current_node
-        a << current_node.data
-        current_node = current_node.next_node
-      end
-      a
+    array = []
+    current_node = head_node
+    while current_node
+      array << current_node.data
+      current_node = current_node.next_node
     end
+    array
   end
 
   class Node
