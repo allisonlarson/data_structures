@@ -39,9 +39,8 @@ class IterativeLinkedList
   end
 
   def pop
-    if head_node.nil?
-      nil
-    elsif head_node.next_node.nil?
+    return nil if !head_node?
+    if head_node.next_node.nil?
       popped = head_node
       @head_node = nil
       popped.data
@@ -56,24 +55,31 @@ class IterativeLinkedList
     end
   end
 
+  def head_node?
+    head_node
+  end
+
+  def delete_head_node(word)
+    if head_node.next_node
+      @head_node = head_node.next_node
+    else
+      @head_node = nil
+    end
+  end
+
   def delete(word)
-    if head_node.nil?
-      nil
-    elsif head_node.data == word
-      if head_node.next_node
-        @head_node = head_node.next_node
-      else
-        @head_node = nil
-      end
+    return nil if !head_node?
+    if head_node.data == word
+      delete_head_node(word)
     else
       current_node = head_node
-      while current_node.data != word && current_node.next_node
-        checked_node = current_node.next_node
-        if checked_node.data == word
+      while current_node 
+        checked_node = current_node.next_node 
+        if checked_node && checked_node.data == word
           current_node.next_node = checked_node.next_node
           checked_node.next_node = nil
         else
-          current_node = current_node.next_node
+          current_node = checked_node 
         end
       end
     end
