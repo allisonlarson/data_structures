@@ -13,12 +13,10 @@ describe Node do
   end
 
   it "has a left node" do
-    skip
     assert_equal 1, Node.new(0, Node.new(1)).left.data
   end
 
   it "has a right node" do
-    skip
     assert_equal 2, Node.new(0, nil, Node.new(2)).right.data
   end
 end
