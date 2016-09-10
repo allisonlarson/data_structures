@@ -27,12 +27,10 @@ describe BinarySearchTree do
   end
   describe "#root_node" do
     it "is nil for an empty list" do
-      skip
       assert_nil BinarySearchTree.new.root_node
     end
 
     it "adds a new root node when pushed" do
-      skip
       @tree.push(1)
       assert_equal 1, @tree.root_node.data
     end
