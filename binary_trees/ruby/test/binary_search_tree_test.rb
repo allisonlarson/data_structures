@@ -41,28 +41,24 @@ describe BinarySearchTree do
     # provide a nicer interface, we will accept raw numbers as inputs to
     # push, and handle wrapping the data in a Node internally
     it "adds data smaller than the root node to the left of the root" do
-      skip
       @tree.push(5) #root
       @tree.push(4)
       assert_equal 4, @tree.root_node.left.data
     end
 
     it "adds data equal to the root node to the left of the root" do
-      skip
       @tree.push(5) #root
       @tree.push(5)
       assert_equal 5, @tree.root_node.left.data
     end
 
     it "adds data larger than the root node to the right of the root" do
-      skip
       @tree.push(5) #root
       @tree.push(7)
       assert_equal 7, @tree.root_node.right.data
     end
 
     it "continues adding smaller data to the left down the tree" do
-      skip
       @tree.push(5) #root
       @tree.push(4)
       @tree.push(3)
@@ -70,7 +66,6 @@ describe BinarySearchTree do
     end
 
     it "continues adding larger data to the right down the tree" do
-      skip
       @tree.push(5) #root
       @tree.push(6)
       @tree.push(7)

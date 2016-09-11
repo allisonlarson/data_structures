@@ -1,7 +1,6 @@
 class Node
-  attr_reader :data,
-    :left,
-    :right
+  attr_reader :data
+  attr_accessor :left, :right
 
   def initialize(data, left=nil, right=nil)
     @data = data
@@ -18,6 +17,26 @@ class BinarySearchTree
   end
 
   def push(data)
-    @root_node = Node.new(data)
+    node = Node.new(data)
+    return @root_node = node unless @root_node
+
+    current_node = @root_node
+    while current_node
+      if current_node.data < data
+        if current_node.right
+          current_node = current_node.right
+        else
+          current_node.right = node
+          break
+        end
+      else
+        if current_node.left
+          current_node = current_node.left
+        else
+          current_node.left = node
+          break
+        end
+      end
+    end
   end
 end
